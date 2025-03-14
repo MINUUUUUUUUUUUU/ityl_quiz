@@ -1,0 +1,343 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+@media all and (min-width: 700px) {
+  .quiz-container,
+  #results {
+    width: 700px;
+  }
+}
+
+body {
+  font-family: 'NanumHumanTTFBold';
+
+  background-color: #fffde7; /* 배경 색 */
+
+  justify-content: center;
+
+  align-items: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  flex-wrap: wrap;
+
+  margin-top: 100px;
+
+  margin-left: 50px;
+
+  margin-right: 50px;
+
+  margin-bottom: 100px;
+
+  overflow: auto;
+}
+
+@font-face {
+  font-family: 'NanumHumanTTFBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2')
+    format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.quiz-container,
+#results {
+  background-color: #ffcc00;
+
+  color: white;
+
+  /* min-width: 700px; */
+  /* 문제, 결과 창 최소 너비 */
+
+  padding: 15px 20px;
+
+  border-radius: 10px;
+
+  margin-bottom: 50px;
+}
+
+#question,
+#quizResult {
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  /* display: none; */
+}
+
+#question {
+  display: none;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* 버튼 사이 간격 */
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.btn-container button,
+#retry-btn,
+#alert-btn {
+  /* background-color: #ffcc00; */
+
+  background-color: white;
+
+  color: black;
+
+  padding: 10px 20px;
+
+  min-width: 100px;
+
+  margin: 5px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-family: 'NanumHumanTTFBold';
+}
+
+.mv-btn-header {
+  text-align: center;
+  margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* 외부 hover 코드 참조 : https://inpa.tistory.com/ */
+
+@keyframes eff24-move {
+  30% {
+    -webkit-transform: translate3d(0, -5px, 0) rotate(5deg);
+
+    transform: translate3d(0, -5px, 0) rotate(5deg);
+  }
+
+  50% {
+    -webkit-transform: translate3d(0, -3px, 0) rotate(-4deg);
+
+    transform: translate3d(0, -3px, 0) rotate(-4deg);
+  }
+
+  80% {
+    -webkit-transform: translate3d(0, 0, 0) rotate(-3deg);
+
+    transform: translate3d(0, 0, 0) rotate(-3deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg);
+
+    transform: rotate(0deg);
+  }
+}
+
+.btn-container button:hover,
+#retry-btn:hover,
+#alert-btn:hover {
+  -webkit-animation-name: eff24-move;
+
+  animation-name: eff24-move;
+
+  -webkit-animation-duration: 0.4s;
+
+  animation-duration: 0.4s;
+
+  -webkit-animation-timing-function: linear;
+
+  animation-timing-function: linear;
+
+  -webkit-animation-iteration-count: 1;
+
+  animation-iteration-count: 1;
+}
+
+/* 외부 hover 코드 참조 : https://inpa.tistory.com/ */
+
+.quiz-button {
+  background-color: #ffcc00;
+
+  color: white;
+
+  padding: 10px 20px;
+
+  min-width: 100px;
+
+  margin: 5px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-family: 'NanumHumanTTFBold';
+
+  border: 1px solid #c29b00;
+}
+
+.quiz-button:nth-of-type(2n + 1) {
+  opacity: 0.6;
+}
+
+.quiz-button:hover {
+  opacity: 0.3;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.15);
+}
+
+.quiz {
+  margin-top: 10px;
+
+  color: black;
+
+  padding: 7px;
+
+  border-radius: 5px;
+
+  font-size: 30px;
+
+  background-color: #ffcc0050;
+}
+
+.quiz-header {
+  justify-content: center;
+
+  align-items: center;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+#img {
+  margin-bottom: 10px;
+  border-radius: 30px;
+  /* transform: scale(0.5, 0.5); */
+}
+
+/* quiz-button은 JavaScript에서 동적으로 추가 */
+/* 선택지 버튼 디자인*/
+.quiz-option {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  padding: 5px;
+  margin: 10px auto;
+  font-size: 18px;
+  background-color: white;
+  color: black;
+  border: 2px solid #ffcc00;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'NanumHumanTTFBold';
+}
+
+/* 선택한 버튼 강조 */
+.quiz-option.selected {
+  background-color: #ffcc00;
+  color: white;
+  font-weight: bold;
+  border-color: #ff9900;
+}
+
+/* 마우스 오버 효과 */
+.quiz-option:hover {
+  background-color: #ffcc00;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 3px 3px 12px rgba(255, 204, 0, 0.5);
+}
+
+/* alert 창 */
+.alert {
+  position: fixed;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 10px;
+
+  text-align: center;
+
+  min-width: 15rem;
+  max-width: 30rem;
+  width: fit-content;
+  height: fit-content;
+
+  background-color: white;
+  color: black;
+  display: none;
+  border: 1px solid #000000;
+}
+
+.alert #alert-content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.alert #alert-btn {
+  border: 1px solid black;
+}
+
+/* 아래부턴 결과 화면에 대한 추가적인 css 위주 */
+
+#results {
+  justify-content: center;
+
+  align-items: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  flex-wrap: wrap;
+
+  text-align: center;
+}
+
+#results h1 {
+  margin: 5px;
+}
+
+#results div {
+  margin-bottom: 7px;
+}
+
+#quizResult div {
+  margin: 5px;
+  color: black;
+}
+
+#retry-btn {
+  border: 1px solid black;
+}
+
+#results #button-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+}
+
+#score {
+  color: rgba(0, 0, 0, 0.8);
+}

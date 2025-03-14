@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>웹 개발 미니 퀴즈</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="alert" id="alert">
+      <div id="alert-content"></div>
+      <button id="alert-btn">확인</button>
+    </div>
+    <div class="quiz-container">
+      <div class="quiz-header">
+        <img id="img" src="test.gif" width="200" height="150" />
+        <h1>웹 개발 미니 퀴즈</h1>
+      </div>
+      <div class="quiz">
+        <div class="quiz-body">
+          <div class="question" id="question">
+            <!-- 퀴즈 질문 -->
+          </div>
+          <div class="options">
+            <!-- 선택지 버튼 -->
+          </div>
+        </div>
+        <div class="quiz-result">
+          <!-- 각 문제 결과 -->
+        </div>
+        <div class="btn-container">
+          <button id="start-btn" class="start-btn">START</button>
+          <button id="prev-btn" class="nav-btn" style="display: none">
+            이전 문제
+          </button>
+          <button id="next-btn" class="nav-btn" style="display: none">
+            다음 문제
+          </button>
+          <button id="submit-btn" class="restart-btn" style="display: none">
+            최종 결과 확인
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mv-btn-container" style="display: none">
+      <div class="mv-btn-header">
+        <h3>문제 선택</h3>
+      </div>
+      <div class="mv-btns" id="mv-btns">
+        <!-- 문제 이동 버튼 -->
+      </div>
+    </div>
+
+    <!-- 김혜진 코드 추가 -->
+    <div id="results" class="hide" style="display: none">
+      <img id="img" src="test2.gif" width="200" height="200" />
+      <div><h1>퀴즈 결과</h1></div>
+      <!-- 총점 출력 -->
+      <div>
+        <p><span id="score"></span></p>
+      </div>
+      <!-- 문제 이동 버튼 -->
+      <div id="button-container"></div>
+      <br />
+      <!-- 정답 여부 -->
+      <h2><div id="correctAnswer"></div></h2>
+      <br />
+      <!-- 문제, 내 답변, 정답, 설명 -->
+      <div id="quizResult">
+        <div id="resultQuestion"></div>
+        <div id="resultMyAnswer"></div>
+        <div id="resultAnswer"></div>
+        <div id="resultExplanation"></div>
+      </div>
+      <br />
+      <br />
+      <div>
+        <button id="retry-btn" class="restart-btn">다시 풀기</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
