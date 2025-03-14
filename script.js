@@ -309,5 +309,5 @@ function loadScore() {
 // 다시 입력하기 버튼 클릭 시 폼으로 돌아가기
 resetButton.addEventListener('click', function () {
   userAnswers = new Array(quizData.length).fill(-1);
-  window.location.href = 'main.html'; // 초기화면으로 이동
+  window.location.href = 'index.html'; // 초기화면으로 이동
 });
